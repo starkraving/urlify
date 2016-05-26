@@ -1,0 +1,24 @@
+{
+  "name": "urlify",
+  "version": "1.0.0",
+  "description": "FreeCodeCamp URL Shortener Microservice",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongod": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starkraving/urlify.git"
+  },
+  "author": "Mike Ritchie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/starkraving/urlify/issues"
+  },
+  "homepage": "https://github.com/starkraving/urlify#readme"
+}
