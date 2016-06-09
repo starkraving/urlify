@@ -5,7 +5,7 @@ if ( mode == 'development' ) {
 var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
-mongoose.connect(process.env.MONGODB_URI);
+//mongoose.connect(process.env.MONGODB_URI);
 var Url = require('./model/url');
 
 app.get('/', function(req, resp){
