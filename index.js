@@ -1,4 +1,7 @@
-require('dotenv').config();
+var mode = process.argv[2] || 'development';
+if ( mode == 'development' ) {
+	require('dotenv').config();
+}
 var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
