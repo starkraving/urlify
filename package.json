@@ -15,7 +15,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js development"
+    "start": "node index.js production"
   },
   "repository": {
     "type": "git",
