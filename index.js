@@ -1,3 +1,4 @@
+console.log('starting up');
 var mode = process.argv[2] || 'development';
 if ( mode == 'development' ) {
 	require('dotenv').config();
@@ -5,7 +6,8 @@ if ( mode == 'development' ) {
 var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
-//mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI);
+console.log('connected to MongoDB');
 var Url = require('./model/url');
 
 app.get('/', function(req, resp){
@@ -52,5 +54,5 @@ app.get('/:hash', function(req, resp){
 		return resp.redirect('/');
 	});
 })
-
+console.log('listening on port '+process.env.APP_PORT);
 app.listen(process.env.APP_PORT);
