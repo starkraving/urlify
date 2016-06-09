@@ -54,5 +54,5 @@ app.get('/:hash', function(req, resp){
 		return resp.redirect('/');
 	});
 })
-console.log('listening on port '+process.env.APP_PORT);
-app.listen(process.env.APP_PORT);
+console.log('listening on port '+process.env.PORT);
+app.listen(process.env.PORT);
