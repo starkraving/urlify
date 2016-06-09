@@ -2,7 +2,7 @@ require('dotenv').config();
 var mongoose = require('mongoose');
 var express = require('express');
 var app = express();
-mongoose.connect(process.env.DB_CONNECTION);
+mongoose.connect(process.env.MONGODB_URI);
 var Url = require('./model/url');
 
 app.get('/', function(req, resp){
@@ -24,16 +24,15 @@ app.get('/register/:url', function(req, resp){
 	Url.findOne({'url': strUrl}, function(err, result){
 		if ( err ) return console.log(err);
 		if ( !result ) {
-			var newURL = {
+			result = {
 				'url': strUrl,
 				'hash': new Date().getTime().toString(36)
 			};
-			var insert = new Url(newURL).save();
-			return resp.end(JSON.stringify(newURL));
+			var insert = new Url(result).save();
 		}
 		return resp.end(JSON.stringify({
-			'url': result.url,
-			'hash': result.hash}));
+			'original': result.url,
+			'shortened': process.env.APP_DOMAIN+result.hash}));
 	});
 	
 });
@@ -49,4 +48,4 @@ app.get('/:hash', function(req, resp){
 	});
 })
 
-app.listen(8080);
+app.listen(process.env.APP_PORT);
