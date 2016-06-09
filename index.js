@@ -32,7 +32,9 @@ app.get('/register/:url', function(req, resp){
 		}
 		return resp.end(JSON.stringify({
 			'original': result.url,
-			'shortened': process.env.APP_DOMAIN+result.hash}));
+			'shortened': process.env.APP_DOMAIN
+					+((process.env.APP_PORT != '80') ? ':'+process.env.APP_PORT+'/' : '/')
+					+result.hash}));
 	});
 	
 });
